@@ -9,10 +9,8 @@ int main() {
 	const char **parts[n]; // whoo, magic
 
 	for (int i = 0; i<n+1;i++) {
-		for (k=0;k<std::floor(m/n);k++) {
-			if (i*n+k<m) {
-				(&parts[i])[k]=&vec[i*n+k];
-			}
+		for (k=0;k<std::floor(m/n)&&i*n+k<m;k++) {
+			(&parts[i])[k]=&vec[i*n+k];
 		}
 	}
 	return -1;
