@@ -1,17 +1,18 @@
 #include<iostream>
 #include<vector>
+#include <cmath>
 
 
 int main() {
-	int n = 5,k,m = 11;
+	int n = 3,k,m = 11;
 	const char *vec[m] = {"adam", "bert", "charles", "david", "eugene", "frank", "george", "hank", "ivan", "jacob", "karl"}; // this is an example of names
 	const char **parts[n]; // whoo, magic
 
-	for (int i = 0; i<n;i++) {
-		const char *part[m/n];
-		for (k=0;k<(m-1);k++) {
-			(&parts[i])[k]=&vec[i*n+k];
-			std::cout << "adding " << vec[i*n+k] << std::endl;
+	for (int i = 0; i<n+1;i++) {
+		for (k=0;k<std::floor(m/n);k++) {
+			if (i*n+k<m) {
+				(&parts[i])[k]=&vec[i*n+k];
+			}
 		}
 	}
 	return -1;
